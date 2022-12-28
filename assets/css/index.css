@@ -1,0 +1,75 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+}
+@media (max-width:786px){
+    .container{
+        width: 95%;
+        margin: auto;
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+nav .logo img{
+    width: 40px ;
+    height: 40px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+nav ul li{
+    padding: 5px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    /* background-color: gray; */
+    padding: 5px;
+}
+
+a:hover{
+    background-color: gray;
+}
+
+.products{
+    padding: 10px;
+    background-color: #eee;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    gap: 4px;
+}
+.products .product{
+    padding: 5px;
+    background-color: rgb(240, 149, 12);
+    color: white;
+    cursor: pointer;
+}
+.prod-container h2{
+    text-align: center;
+    background-color: #eee;
+    margin: auto;
+    padding: 10px;
+}
