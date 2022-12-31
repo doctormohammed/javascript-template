@@ -113,7 +113,7 @@ function minusFuction(){
 
 
 /////////////colors//////
-document.querySelectorAll(".set-box ul li").forEach(li=>{
+document.querySelectorAll(".set-box ul.colors li").forEach(li=>{
     li.addEventListener("click",(e)=>{
         document.documentElement.style.setProperty("--main-color" ,e.target.dataset.color)
         localStorage.setItem("main-color" , e.target.dataset.color)

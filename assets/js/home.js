@@ -33,7 +33,7 @@ let mo = products.map(product=>{
             <div class="info">
                <h3 onclick="saveItemId(${product.id})">${product.name}</h3>
                <p>${product.p}</p>
-               <span>${product.size}</span>
+               <span><span style="color:var(--main-color);font-size:19px">Size</span> :  ${product.size}</span>
             </div>
             <div class="control">
                 <i style="color:${product.like === true?"red":"black"}" onclick="addToFav(${product.id})" class="fa fa-heart"></i>
@@ -92,6 +92,10 @@ window.onload  = function(){
    if(localStorage.getItem("main-color")){
 
     document.documentElement.style.setProperty("--main-color" , localStorage.getItem("main-color"))
+   }
+
+   if(localStorage.getItem("lang")){
+    document.body.style.setProperty("direction" , localStorage.getItem("lang"))
    }
    
 }
@@ -177,11 +181,11 @@ function saveItemId(id){
     window.location = "details.html"
 }
 
-///////////////search////////////////////////////////////////////////////////////////////
+///////////////settings////////////////////////////////////////////////////////////////////
 
 let searchLi = document.getElementById("Settings")
 
-let searchSide = document.querySelector(".side-search")
+let searchSide = document.querySelector(".side-settings")
 
 searchLi.addEventListener("click" , openForSearch)
 
@@ -195,6 +199,21 @@ function openForSearch(){
 
     searchSide.classList.add("show")
 }
+
+/////////////////
+
+let arabic = document.getElementById("arabic")
+let english = document.getElementById("english")
+
+arabic.addEventListener("click",(e)=>{
+    document.body.style.setProperty("direction" , e.target.dataset.lang)
+    localStorage.setItem("lang" , e.target.dataset.lang)
+    searchSide.style.direction = "ltr"
+})
+english.addEventListener("click",(e)=>{
+    document.body.style.setProperty("direction" , e.target.dataset.lang)
+    localStorage.setItem("lang" , e.target.dataset.lang)
+})
 
 /////////////Back Fuction/////////////////////////////////////////////////////////////////
 
@@ -211,7 +230,7 @@ function backFuction(){
 
 /////////////colors////////////////////////////////////////////////////////////////////////
 
-document.querySelectorAll(".set-box ul li").forEach(li=>{
+document.querySelectorAll(".set-box ul.colors li").forEach(li=>{
 
     li.addEventListener("click",(e)=>{
 
@@ -234,3 +253,22 @@ profile.addEventListener("click" ,()=>{
 backProfile.addEventListener("click",()=>{   
      document.querySelector(".profile").classList.remove("show")
 })
+
+//////////filter by size/////////////
+
+let select = document.getElementById("select")
+
+console.log(select)
+
+select.addEventListener("change" , FilterBySize)
+
+function FilterBySize(){
+
+    let value = select.value
+    if(value==="All"){
+        drowUi(productsData)
+    }else{
+        let filtered = productsData.filter(item=>item.size===select.value)
+        drowUi(filtered)
+    }
+}

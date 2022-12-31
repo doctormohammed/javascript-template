@@ -38,6 +38,13 @@
                 </li>
             </ul>
         </nav>
+       <select name="" id="select">
+        <option value hidden>Filter By Size</option>
+        <option value="All">All</option>
+        <option value="large">large</option>
+        <option value="medium">Medium</option>
+        <option value="small">small</option>
+       </select>
         <div class="products">
             
         </div>
@@ -76,15 +83,24 @@
 
 
     </div>
-    <div class="side-search">
+    <!-- container -->
+
+    <div class="side-settings">
         <i class="fa fa-arrow-left"></i>
         <div class="set-box">
             <h3>Color</h3>
-            <ul>
+            <ul class="colors">
                 <li data-color="#0a7adcdc"></li>
                 <li data-color="green"></li>
                 <li data-color="purple"></li>
                 <li data-color="black"></li>
+            </ul>
+        </div>
+        <div class="set-box">
+            <h3>Language</h3>
+            <ul class="lang">
+                <li id="arabic" data-lang="rtl">Arabic</li>
+                <li id="english" data-lang="ltr">English</li>
             </ul>
         </div>
     </div>

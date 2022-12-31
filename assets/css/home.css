@@ -4,7 +4,9 @@
     box-sizing: border-box;
 
 }
-
+html{
+    direction: ltr;
+}
 :root{
     --main-color : #f50
 }
@@ -29,6 +31,7 @@ nav {
     padding: 7px;
     background-color: black;
     color: white;
+    /* margin-bottom: 100px; */
 }
 nav .logo img{
     width: 40px ;
@@ -52,7 +55,7 @@ nav ul li a{
 
 
 .products{
-    margin-top: 58px;
+    /* margin-top: 58px; */
     padding: 7px;
     background-color: rgb(163, 156, 156);
     display: flex;
@@ -195,7 +198,7 @@ ul.nav-in-app li{
 }
 
 .created-overlay{
-    position: absolute;
+    position: fixed;
     top: 0;
     height: 100%;
     left: 0;
@@ -203,8 +206,8 @@ ul.nav-in-app li{
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 5;
 }
-.side-search{
-    position: absolute;
+.side-settings{
+    position: fixed;
     top: 0;
     height: 100%;
     left: 0;
@@ -214,7 +217,7 @@ ul.nav-in-app li{
     z-index: 6;
     transition: 0.3s ease-out;
 }
-.side-search.show{
+.side-settings.show{
     left: 0px;
 }
 .fa-arrow-left{
@@ -262,9 +265,18 @@ ul.nav-in-app li{
 .set-box ul li:nth-child(3){background-color: purple;}
 .set-box ul li:nth-child(4){background-color: black;}
 
+.side-settings .set-box .lang li{
+    width: 45%;
+    border-radius: 0;
+    text-align: center;
+    transition: 0.3s;
+}
+.side-settings .set-box .lang li:hover{
+    transform: scale(0.96);
+}
 
 .profile{
-    position: absolute;
+    position: fixed;
     width: 100%;
     left: 0;
     height: 100%;
@@ -308,4 +320,16 @@ ul.nav-in-app li{
     outline: 1px solid salmon;
     pointer-events: none;
     margin-top: 8px;
+}
+
+
+select{
+    display: block;
+    width: 100%;
+    padding: 11px;
+    font-size: 16px;
+    border: 5px solid var(--main-color);
+    margin-top: 58px;
+    margin-bottom: 0;
+
 }
